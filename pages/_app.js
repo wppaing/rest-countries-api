@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import useDarkMode from "../hooks/useDarkMode";
 import GlobalStyle from "../components/GlobalStyles";
 import Layout from "../components/Layout";
+import Head from "next/head";
 
 const lightTheme = {
   primary: "#050505",
@@ -24,6 +25,9 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
       <GlobalStyle />
       <CountryProvider>
+        <Head>
+          <title>Rest Countries API</title>
+        </Head>
         <Layout theme={theme} toggleTheme={toggleTheme}>
           <Component {...pageProps} />
         </Layout>

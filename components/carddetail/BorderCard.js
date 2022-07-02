@@ -19,7 +19,7 @@ const StyledBorderCard = styled.span`
 `;
 
 export default function BorderCard({ name }) {
-  const [countries] = useContext(CountryContext);
+  const [countries, loading] = useContext(CountryContext);
   const fullName = countries.filter((country) => country.cca3 === name)[0].name
     .common;
 

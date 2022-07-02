@@ -4,6 +4,7 @@ export const CountryContext = createContext();
 
 const CountryProvider = (props) => {
   const [countries, setCountries] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -15,11 +16,12 @@ const CountryProvider = (props) => {
         a.name.common.localeCompare(b.name.common)
       );
       setCountries(countriesData);
+      setLoading(false);
     })();
   }, []);
 
   return (
-    <CountryContext.Provider value={[countries]}>
+    <CountryContext.Provider value={[countries, loading]}>
       {props.children}
     </CountryContext.Provider>
   );

@@ -1,12 +1,14 @@
 import Link from "next/link";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import CountryCard from "../countrycard";
 import { CountryContext } from "./../../providers/CountryProvider";
 import { Container, CountriesContainer, MenuContainer } from "./Elements";
 
 export default function Main() {
-  const [countries] = useContext(CountryContext);
-  const [data, setData] = useState(countries);
+  const [countries, loading] = useContext(CountryContext);
+  const [data, setData] = useState();
+
+  useEffect(() => setData(countries), [loading]);
 
   const filterCountry = (e) => {
     const filter = e.target.value;

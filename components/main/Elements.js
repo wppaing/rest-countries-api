@@ -53,7 +53,7 @@ export const MenuContainer = styled.div`
 export const CountriesContainer = styled.div`
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, 16rem);
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   gap: 3rem;
 
   @media screen and (max-width: 1200px) {
