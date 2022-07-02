@@ -8,7 +8,7 @@ export default function Main() {
   const [countries, loading] = useContext(CountryContext);
   const [data, setData] = useState();
 
-  useEffect(() => setData(countries), [loading]);
+  useEffect(() => setData(countries), [loading], []);
 
   const filterCountry = (e) => {
     const filter = e.target.value;
@@ -56,15 +56,13 @@ export default function Main() {
       </MenuContainer>
       <CountriesContainer>
         {data &&
-          React.Children.toArray(
-            data.map((country) => (
-              <Link href={`${country.name.common}`}>
-                <a>
-                  <CountryCard country={country} />
-                </a>
-              </Link>
-            ))
-          )}
+          data.map((country) => (
+            <Link href={`${country.name.common}`} key={country.name.common}>
+              <a>
+                <CountryCard country={country} />
+              </a>
+            </Link>
+          ))}
       </CountriesContainer>
     </Container>
   );

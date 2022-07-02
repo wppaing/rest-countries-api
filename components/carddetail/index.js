@@ -27,7 +27,12 @@ export default function CardDetail({ country }) {
       </BtnContainer>
       <Container>
         <ImgContainer>
-          <Image src={country.flags.svg} layout="fill" objectFit="cover" />
+          <Image
+            src={country.flags.svg}
+            layout="fill"
+            objectFit="cover"
+            alt={country.name.common}
+          />
         </ImgContainer>
         <InfoContainer>
           <h2>{country.name.common}</h2>
@@ -63,9 +68,9 @@ export default function CardDetail({ country }) {
           <BorderContainer>
             <div>Border Countries:</div>
             <Cards>
-              {React.Children.toArray(
-                country.borders.map((border) => <BorderCard name={border} />)
-              )}
+              {country.borders.map((border) => (
+                <BorderCard name={border} key={border} />
+              ))}
             </Cards>
           </BorderContainer>
         </InfoContainer>

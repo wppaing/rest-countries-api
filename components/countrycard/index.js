@@ -7,7 +7,12 @@ export default function CountryCard({ country }) {
   return (
     <Card>
       <ImgContainer>
-        <Image src={country.flags.svg} layout="fill" objectFit="cover" />
+        <Image
+          src={country.flags.svg}
+          layout="fill"
+          objectFit="cover"
+          alt={country.name.common}
+        />
       </ImgContainer>
       <Info>
         <h2>{country.name.common}</h2>
