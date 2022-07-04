@@ -9,7 +9,8 @@ export default function NavBar({ theme, toggleTheme }) {
           <a>Where in the world?</a>
         </Link>
         <ThemeToggler onClick={toggleTheme}>
-          {theme === "light" ? "Dark Mode" : "Light Mode"}
+          <i className={`fas ${theme === "light" ? "fa-sun" : "fa-moon"}`}></i>
+          {theme === "light" ? "Light Mode" : "Dark Mode"}
         </ThemeToggler>
       </Container>
     </Wrapper>

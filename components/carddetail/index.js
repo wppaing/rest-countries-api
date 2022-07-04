@@ -23,7 +23,10 @@ export default function CardDetail({ country }) {
   return (
     <Wrapper>
       <BtnContainer>
-        <button onClick={() => router.back()}>Back</button>
+        <button onClick={() => router.back()}>
+          <i className="fa-solid fa-left-long"></i>
+          Back
+        </button>
       </BtnContainer>
       <Container>
         <ImgContainer>

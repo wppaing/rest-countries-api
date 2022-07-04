@@ -19,6 +19,11 @@ export const Container = styled.div`
 
 export const ThemeToggler = styled.div`
   font-size: 1rem;
+  user-select: none;
+
+  i {
+    margin-right: 0.5rem;
+  }
 
   :hover {
     cursor: pointer;

@@ -31,14 +31,4 @@ export const Info = styled.div`
     font-size: 1.3rem;
     margin-bottom: 1rem;
   }
-
-  p {
-    font-weight: 600;
-    margin: 0.2rem 0;
-  }
-
-  span {
-    font-weight: 300;
-    opacity: 0.85;
-  }
 `;

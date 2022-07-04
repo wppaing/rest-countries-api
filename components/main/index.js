@@ -5,7 +5,8 @@ import { CountryContext } from "./../../providers/CountryProvider";
 import { Container, CountriesContainer, MenuContainer } from "./Elements";
 
 export default function Main() {
-  const [countries, loading] = useContext(CountryContext);
+  const [countries, setCountries, loading, setLoading] =
+    useContext(CountryContext);
   const [data, setData] = useState();
 
   useEffect(() => setData(countries), [loading], []);

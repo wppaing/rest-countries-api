@@ -1,10 +1,11 @@
 import { CountryContext } from "../providers/CountryProvider";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useRouter } from "next/router";
 import CardDetail from "../components/carddetail";
 
 export default function Country() {
-  const [countries, loading] = useContext(CountryContext);
+  const [countries, setCountries, loading, setLoading] =
+    useContext(CountryContext);
   const router = useRouter();
 
   const filterCountry = (name) =>

@@ -8,6 +8,10 @@ export const BtnContainer = styled.div`
     margin: 1rem 0rem;
   }
 
+  i {
+    margin-right: 0.5rem;
+  }
+
   button {
     all: unset;
     padding: 0.7rem 2rem;

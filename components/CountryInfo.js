@@ -5,7 +5,7 @@ const Info = styled.p`
 
   span {
     font-weight: 300;
-    opacity: 0.85;
+    opacity: 0.9;
   }
 `;
 export default function CountryInfo({ title, stat, isArray }) {
