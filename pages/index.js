@@ -16,7 +16,7 @@ const Home = ({ countriesData }) => {
 
 export async function getStaticProps() {
   const res = await fetch(
-    `https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags`
+    `https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cca3,borders`
   );
   const data = await res.json();
   const countriesData = data.sort((a, b) =>
