@@ -1,15 +1,16 @@
-import { CountryContext } from "../providers/CountryProvider";
-import { useContext } from "react";
-import { useRouter } from "next/router";
 import CardDetail from "../components/carddetail";
 
-export default function Country() {
-  const [countries, setCountries, loading, setLoading] =
-    useContext(CountryContext);
-  const router = useRouter();
+const Country = ({ data }) => <CardDetail country={data[0]} />;
 
-  const filterCountry = (name) =>
-    countries.filter((country) => country.name.common === name)[0];
-
-  return <CardDetail country={filterCountry(router.query.country)} />;
+export async function getServerSideProps(context) {
+  const route = context.params.country;
+  const res = await fetch(
+    `https://restcountries.com/v3.1/name/${route}?fullText=true&&fields=name,population,region,subregion,capital,flags,cca3,continents,tld,currencies,languages,borders`
+  );
+  const data = await res.json();
+  return {
+    props: { data }, // will be passed to the page component as props
+  };
 }
+
+export default Country;
